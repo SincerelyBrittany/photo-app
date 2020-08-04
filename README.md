@@ -19,3 +19,17 @@ https://source.unsplash.com/1600x900/?nature,water
 
 
 # photo-app
+Steps taken to build: 
+1. rails new photo_app --database=postgresql
+2. cd photo_app
+3. rails g resource User name:string
+4. rake db:drop db:create db:migrate
+5. rails g resource Follow follower_id:integer followee_id:integer
+6. rails g resource Follow follower_id:integer followee_id:integer
+
+
+SQL Setup Resource: https://medium.com/@ethanryan/creating-a-new-rails-api-with-a-postgresql-database-488ffce649d9
+
+Photo API SEARCH : https://source.unsplash.com/
+
+Setting up user &folloers: https://medium.com/@camfeg/self-referencing-tables-and-making-friends-with-ruby-on-rails-3d8e59a21330

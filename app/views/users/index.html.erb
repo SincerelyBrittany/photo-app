@@ -1,4 +1,4 @@
 <h1>The users of this app are</h1>
 <% @users.each do |user| %>
-  <p><%= link_to user.name, user_path(user) %></p>
+  <%= link_to user.name, user_path(user)%>
 <% end %>
