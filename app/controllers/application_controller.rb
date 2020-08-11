@@ -1,23 +1,27 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :logged_in?
-    helper_method :current_user
+    def after_sign_in_path_for(resource)
+        profile_path(current_user) #your path
+    end
 
-  private
+#     helper_method :logged_in?
+#     helper_method :current_user
 
-  def logged_in?
-      !!current_user
-  end 
+#   private
 
-  def current_user
-      User.find_by(id: session[:user_id])
-  end
+#   def logged_in?
+#       !!current_user
+#   end 
 
-    def log_in(user)
-        session[:user_id] = user.id
-    end 
+#   def current_user
+#       User.find_by(id: session[:user_id])
+#   end
 
-    def authenticate
-        redirect_to login_path if !logged_in?
-    end 
+#     def log_in(user)
+#         session[:user_id] = user.id
+#     end 
+
+#     def authenticate
+#         redirect_to login_path if !logged_in?
+#     end 
 end
