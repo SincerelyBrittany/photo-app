@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :photos
   resources :profiles
-  root :to => 'photos#index'
+  root :to => 'photos#home'
   devise_for :admins
   devise_for :users
   # root to: 'users#index'
