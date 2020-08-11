@@ -6,12 +6,14 @@ I want to create a simple rails app that will allow users to:
 3. Add pictures from other pages to their own. 
 
 First create users and 
-
+Devise gem
+Cancancan
 Users can follow eachother.
 Users can add photos to their page
 Users can search for photos
-Users can 
+Users can sign in using google, twitter, or github. 
 https://source.unsplash.com/1600x900/?nature,water
+Inspirational quote with photo?
 
 
 #rails g resource User name:string
@@ -25,6 +27,25 @@ Steps taken to build:
 3. rails g resource User name:string
 4. rails g resource Follow follower_id:integer followee_id:integer
 5. rake db:drop db:create db:migrate
+
+rails d resource User name:string
+rails d resource Follow
+
+
+1. gem 'devise'
+2. rails generate devise:install
+3. rails generate devise User 
+4. rails g devise:views
+
+Admin
+1. rails generate devise Admin  
+2. update migration
+3. rails generate migration add_admin_to_users admin:boolean
+4. 
+
+
+
+
 
 
 SQL Setup Resource: https://medium.com/@ethanryan/creating-a-new-rails-api-with-a-postgresql-database-488ffce649d9
