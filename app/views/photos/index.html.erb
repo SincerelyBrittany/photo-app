@@ -3,8 +3,9 @@
 <div class="cards">
 <% 20.times do  %>
     <div class="card">
-        <img src="https://source.unsplash.com/random" alt="random" >
+        <img src="<%= @photo %>" alt="random" >
         <br/>
+        <p> <%= @quote %> </p>
    
     </div>
 <% end%>

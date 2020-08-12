@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :photos
   resources :profiles
+  get "/api" => "apis#get_photos"
   root :to => 'photos#home'
   devise_for :admins
   devise_for :users
