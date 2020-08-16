@@ -2,7 +2,9 @@ class PhotosController < ApplicationController
     def home 
     end 
     def index 
-        @photo = "https://source.unsplash.com/random"
+        # @photo = "https://source.unsplash.com/random"
+        @photo = Unsplash::Photo.search("cats")
+        byebug
 
         url = "https://quotes.rest/qod"
         uri = URI.parse(url)

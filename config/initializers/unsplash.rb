@@ -1,9 +1,18 @@
-Unsplash.configure do |config|
-    config.application_access_key = "YOUR_ACCESS_KEY"
-    config.application_secret = "YOUR_APPLICATION_SECRET"
-    config.application_redirect_uri = "https://your-application.com/oauth/callback"
-    config.utm_source = "alices_terrific_client_app"
+# Unsplash.configure do |config|
   
-    # optional:
-    config.logger = MyCustomLogger.new
-  end
+#     config.application_access_key = "KEY"
+#     config.application_secret = "SECRET"
+#     # config.application_redirect_uri = "https://photo_app.com/oauth/callback"
+#     config.application_redirect_uri = "urn:ietf:wg:oauth:2.0:oob"
+    
+#     config.utm_source = "photo_app"
+  
+#     # optional:
+#     # config.logger = MyCustomLogger.new
+#   end
+
+Unsplash.configure do |config|
+  config.application_access_key = ENV['KEY']
+  config.application_secret = ENV['SECRET']
+  config.utm_source = 'photo_app'
+end
