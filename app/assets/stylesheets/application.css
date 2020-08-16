@@ -55,6 +55,16 @@ h1 {
     height: 200px;
 }
 
+.card div {
+    /* width: 100px; */
+    /* overflow: hidden; */
+    /* height: 100px; */
+    width: 300px;
+    overflow: scroll;
+    height: 150px;
+}
+
+
 .review {
     background-color: red;
     margin-left: 20%;
