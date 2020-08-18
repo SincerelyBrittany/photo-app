@@ -3,8 +3,16 @@ class PhotosController < ApplicationController
     end 
     def index 
         # @photo = "https://source.unsplash.com/random"
-        @photo = Unsplash::Photo.search("cats")
-        byebug
+        photos = Unsplash::Photo.search("cats")
+        @photos = []
+        photos.each do |a|
+            description = a["alt_description"]
+            portfolio = a["portfolio_url"]
+            photo = a["urls"].full
+            @photos << photo
+        end 
+        # byebug
+        # @photo[0]["urls"].full
 
         url = "https://quotes.rest/qod"
         uri = URI.parse(url)

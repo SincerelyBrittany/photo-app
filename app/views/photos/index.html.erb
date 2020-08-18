@@ -1,12 +1,12 @@
 <h1> This is photos index </h1>
 
 <div class="cards">
-<% 20.times do  %>
+<% @photos.each do |photo| %>
     <div class="card">
-        <img src="<%= @photo %>" alt="random" >
+        <img src="<%= photo %>" alt="random" >
         <br/>
         <div><p> <%= @quote %> </p></div>
-   
+        <%= check_box_tag "photo", "#{photo}" %>
     </div>
 <% end%>
 </div>
