@@ -59,6 +59,8 @@ ActiveRecord::Schema.define(version: 2020_08_08_184707) do
   end
 
   create_table "profiles", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "photo_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
