@@ -45,7 +45,5 @@ class PhotosController < ApplicationController
     end 
 
     private  
-    def photos_params
-      params.require(:company).permit(:title, :description,:email, :phone, :website, :location)
-    end
+  
 end
