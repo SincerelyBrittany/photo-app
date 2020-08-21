@@ -1,22 +1,26 @@
 class PhotosController < ApplicationController
+    before_action :authenticate_user!
+    # protect_from_forgery with: :null_session
+    skip_before_action :verify_authenticity_token
     def home 
     end 
 
     def new 
-        byebug
+     byebug
     end 
     def create
         byebug
     end 
 
-    def index 
+    def index
+        # byebug 
         # @photo = "https://source.unsplash.com/random"
-        photos = Unsplash::Photo.search("cats")
-        @photos = []
-        photos.each do |p|
-           a = Photo.new(photo: p["urls"].full, quote: p["alt_description"] )
-           @photos << a
-        end 
+        @photos = Unsplash::Photo.search("cats")
+        # @photos = []
+        # photos.each do |p|
+        #    a = Photo.new(photo: p["urls"].full, quote: p["alt_description"] )
+        #    @photos << a
+        # end 
         #@photo = Photo.new
         # @photos = []
         # photos.each do |a|
@@ -45,5 +49,7 @@ class PhotosController < ApplicationController
     end 
 
     private  
-  
+    # def photos_params
+    #   params.require(:company).permit(:title, :description,:email, :phone, :website, :location)
+    # end
 end
