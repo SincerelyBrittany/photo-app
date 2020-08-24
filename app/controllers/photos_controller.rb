@@ -9,8 +9,36 @@ class PhotosController < ApplicationController
      byebug
     end 
     def create
-        byebug
-    end 
+        @photos = []
+        photos_params.each do |x|
+        #    photo = Photo.create(url: x[:url], quote: x[:quote])
+           photo = Photo.create(photo: x[:url], quote: x[:quote])
+           photo.user = current_user
+           byebug
+        #    photo.user 
+           @photos << photo
+        end 
+      
+        # if @photos.save
+        #     byebug
+        #    else 
+        #      redirect_to @photos
+        #    end 
+        
+
+        # photos_params.each do |x|
+        #     Photo.create(x)
+        # end
+       
+    #     @photo = Photo.create(photos_params)
+    #     byebug
+    #     @company.user = current_user
+    #     if @company.save
+    #     redirect_to company_path(@company)
+    #    else
+    #   render :new
+    # end
+  end
 
     def index
         # byebug 
@@ -49,7 +77,9 @@ class PhotosController < ApplicationController
     end 
 
     private  
-    # def photos_params
-    #   params.require(:company).permit(:title, :description,:email, :phone, :website, :location)
-    # end
+    def photos_params
+        params.require(:data).each do |x|
+            x.permit(:url, :quote)
+        end
+    end 
 end
