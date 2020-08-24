@@ -1,3 +1,11 @@
 <%= link_to 'Search Photos', photos_path %>
 
 <%= current_user.email %>
+
+<% current_user.photos.each do |x| %>
+  <div class="card">
+ <img src="<%= x.photo %>" alt="random" ><br>
+<div><p> <%= x.quote %> </p></div><br>
+
+<% end %>
+</div>
