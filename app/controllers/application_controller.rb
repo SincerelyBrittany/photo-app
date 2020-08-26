@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
 
     def after_sign_in_path_for(resource)
-        profile_path(current_user) #your path
+        # profile_path(current_user) #your path
+        photos_path
     end
 
 #     helper_method :logged_in?

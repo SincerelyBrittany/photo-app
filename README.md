@@ -1,4 +1,14 @@
 # README
+rails db:drop
+rails db:create
+rails db:migrate
+rails db:migrate:status
+
+
+Google:rails console not working
+https://stackoverflow.com/questions/24276033/rails-console-doesnt-start
+spring stop
+rails console
 
 I want to create a simple rails app that will allow users to:
 1. Search for images to add to their page - sers can have a profile picture (active storage)

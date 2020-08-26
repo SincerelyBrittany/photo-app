@@ -1,4 +1,4 @@
 class Profile < ApplicationRecord
-    belongs_to :user
+    has_many :users
     belongs_to :photo
 end

@@ -13,11 +13,19 @@ class PhotosController < ApplicationController
         photos_params.each do |x|
         #    photo = Photo.create(url: x[:url], quote: x[:quote])
            photo = Photo.create(photo: x[:url], quote: x[:quote])
-           photo.user = current_user
-           byebug
+           if photo.save 
+            @profile = Profile.create(user_id: current_user.id, photo_id: photo.id)
+            byebug
+        #    photo.user = current_user
+        #    byebug
         #    photo.user 
            @photos << photo
+           end
         end 
+        # byebug
+        # @profile = Profile.create(user_id: current_user.id, photo_id: photo.id)
+        # byebug
+
       
         # if @photos.save
         #     byebug
