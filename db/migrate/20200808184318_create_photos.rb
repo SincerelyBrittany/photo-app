@@ -4,6 +4,7 @@ class CreatePhotos < ActiveRecord::Migration[6.0]
       t.string :photo
       t.string :quote
       t.integer :profile_id
+      t.integer :user_id
       t.timestamps
     end
   end

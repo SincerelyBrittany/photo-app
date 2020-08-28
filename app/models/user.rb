@@ -5,6 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # has_one_attached :avatar
-  has_many :photos
-  belongs_to :profile
+    # works
+    # has_many :profiles
+    has_many :photos, dependent: :destroy
+    # has_many :photos, through: :photos
+    belongs_to :profile
+
+    # belong_to :profile
+    # has_many :photos, dependent: :destroy
+    # has_many :companies, through: :comments
+ 
 end

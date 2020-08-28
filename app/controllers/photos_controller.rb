@@ -10,43 +10,18 @@ class PhotosController < ApplicationController
     end 
     def create
         @photos = []
+        @profile = Profile.first_or_create(user_id: current_user.id)
         photos_params.each do |x|
-        #    photo = Photo.create(url: x[:url], quote: x[:quote])
-           photo = Photo.create(photo: x[:url], quote: x[:quote])
+        photo = Photo.create(photo: x[:url], quote: x[:quote], user_id: current_user.id, profile_id: @profile.id)
            if photo.save 
-            byebug
-            @profile = Profile.create(user_id: current_user.id, photo_id: photo.id)
-           
-        #    photo.user = current_user
-        #    byebug
-        #    photo.user 
-           @photos << photo
+            @photos << photo
            end
         end 
-        # byebug
-        # @profile = Profile.create(user_id: current_user.id, photo_id: photo.id)
-        # byebug
-
-      
-        # if @photos.save
-        #     byebug
-        #    else 
-        #      redirect_to @photos
-        #    end 
-        
-
-        # photos_params.each do |x|
-        #     Photo.create(x)
-        # end
-       
-    #     @photo = Photo.create(photos_params)
-    #     byebug
-    #     @company.user = current_user
-    #     if @company.save
-    #     redirect_to company_path(@company)
-    #    else
-    #   render :new
-    # end
+        if @photos.nil? || @photos.empty? || @photos = []
+            byebug
+         else 
+             redirect_to @profile
+         end 
   end
 
     def index
