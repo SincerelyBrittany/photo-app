@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   # has_one_attached :avatar
   has_many :photos
-  # belongs_to :profile
+  belongs_to :profile
 end

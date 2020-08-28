@@ -14,8 +14,9 @@ class PhotosController < ApplicationController
         #    photo = Photo.create(url: x[:url], quote: x[:quote])
            photo = Photo.create(photo: x[:url], quote: x[:quote])
            if photo.save 
-            @profile = Profile.create(user_id: current_user.id, photo_id: photo.id)
             byebug
+            @profile = Profile.create(user_id: current_user.id, photo_id: photo.id)
+           
         #    photo.user = current_user
         #    byebug
         #    photo.user 
