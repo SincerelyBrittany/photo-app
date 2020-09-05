@@ -1,17 +1,17 @@
 <h1> This is photos index </h1>
 
 <div class="cards">
-<%# form_tag(new_photo_path, {:method => :get}) do %>
+<%= form_tag(new_photo_path, {:method => :get}) do %>
     <% @photos.each do |p| %>
         <div class="card">
-            <img src="<%= p["urls"].full %>" alt="random" ><br>
-            <div><p> <%= p["alt_description"] %> </p></div><br>
-            <%= check_box_tag "data", 1, false, data: {url: p["urls"].full, description: p["alt_description"]}, class: "add-photo"  %>
-            
+            <img src="<%= p.photo %>" alt="random" ><br>
+            <div><p> <%= p.quote %> </p></div><br>
+            <%= check_box_tag "photo_ids[]", p.id %>
+            <%= check_box_tag "photo_ids_two[]", p %>
             <%# check_box_tag :photo_ids, {multiple: true}, 1, nil %>
             <br>
         </div>
     <% end %>
-  <button id="submit"> Submit </button>
-<%# end %>
+  <%= submit_tag "Submit Post" %>
+<% end %>
 </div>
