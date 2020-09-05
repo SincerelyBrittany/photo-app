@@ -7,32 +7,35 @@ class PhotosController < ApplicationController
 
     def new 
      byebug
+     #params[:photo_ids][1].save
     end 
     def create
-        @photos = []
-        @profile = Profile.first_or_create(user_id: current_user.id)
-        photos_params.each do |x|
-        photo = Photo.create(photo: x[:url], quote: x[:quote], user_id: current_user.id, profile_id: @profile.id)
-           if photo.save 
-            @photos << photo
-           end
-        end 
-        if @photos.nil? || @photos.empty? || @photos = []
-            byebug
-         else 
-             redirect_to @profile
-         end 
+       
+        # @photos = []
+        # @profile = Profile.first_or_create(user_id: current_user.id)
+        # photos_params.each do |x|
+        # photo = Photo.create(photo: x[:url], quote: x[:quote], user_id: current_user.id, profile_id: @profile.id)
+        #    if photo.save 
+        #     @photos << photo
+        #    end
+        # end 
+        # if @photos.nil? || @photos.empty? || @photos = []
+        #     byebug
+        #  else 
+        #      redirect_to @profile
+        #  end 
   end
 
     def index
         # byebug 
         # @photo = "https://source.unsplash.com/random"
-        @photos = Unsplash::Photo.search("cats")
-        # @photos = []
-        # photos.each do |p|
-        #    a = Photo.new(photo: p["urls"].full, quote: p["alt_description"] )
-        #    @photos << a
-        # end 
+        photos = Unsplash::Photo.search("cats")
+        @photos = []
+        photos.each do |p|
+            # byebug
+           a = Photo.new(photo: p["urls"].full, quote: p["alt_description"] )
+           @photos << a
+        end 
         #@photo = Photo.new
         # @photos = []
         # photos.each do |a|
