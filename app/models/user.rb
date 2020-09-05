@@ -9,7 +9,7 @@ class User < ApplicationRecord
     # has_many :profiles
     has_many :photos, dependent: :destroy
     # has_many :photos, through: :photos
-    belongs_to :profile
+    # belongs_to :profile
 
     # belong_to :profile
     # has_many :photos, dependent: :destroy
