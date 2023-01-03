@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
-gem "httparty", "~> 0.18.0"
+gem "httparty", "~> 0.21.0"
 gem 'unsplash'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
